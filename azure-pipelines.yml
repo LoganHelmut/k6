@@ -1,8 +1,8 @@
-pool:  # Defines the pool of virtual machines for running the pipeline
-  vmImage: 'ubuntu-latest'  # Specifies that the pipeline should use the latest Ubuntu-based VM
+pool:
+  vmImage: 'ubuntu-latest'  # Use an Ubuntu-based VM as the agent
 
-steps:  # Defines the steps to execute in the pipeline
-- script: |  # Runs a shell script on the agent
+steps:
+- script: |
     sudo gpg -k  # Check existing GPG keys (optional)
     
     # Add K6 GPG key for verifying the package
@@ -14,7 +14,7 @@ steps:  # Defines the steps to execute in the pipeline
     
     sudo apt-get update  # Update package list
     sudo apt-get install k6 -y  # Install K6
-  displayName: 'Install K6'  # Sets a display name for this step in the pipeline logs
+  displayName: 'Install K6'
 
-- script: k6 run basic_stress.js  # Executes the K6 script named "basic_stress.js" to perform load testing
-  displayName: 'Run K6 Test'  # Sets a display name for this step in the pipeline logs
+- script: k6 run basic_stress.js  # Run your K6 test script
+  displayName: 'Run K6 Test'
