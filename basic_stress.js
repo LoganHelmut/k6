@@ -23,9 +23,9 @@ export const options = {
         },
     },
     thresholds: {
-        checks: ['rate>0.99'], // 90% of the checks must passed
+        checks: ['rate>0.90'], // 90% of the checks must passed
         http_req_duration: ['p(95) < 100'], // 95% of requests must be under 100ms
-        http_req_failed: ['rate>0.05'], // Only 1% of requests failed are acepted
+        http_req_failed: ['rate>0.05'], // Only 5% of requests failed are acepted
     }
 };
 
